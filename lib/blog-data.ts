@@ -23,7 +23,7 @@ export const posts: Post[] = [
     readTime: "12 min",
     category: "react",
     tags: ["React", "React Hooks", "useState", "useEffect", "Frontend", "JavaScript"],
-    image: "/images/blog/react-hooks.webp",
+    image: "/images/blog/react-hookss.webp",
     content: `
 <h2>Introduction to React Hooks</h2>
 <p>React Hooks changed the way developers build modern React applications. Introduced in React 16.8, Hooks allow functional components to use state, manage side effects, access context, and reuse application logic without writing class components.</p>
@@ -188,7 +188,7 @@ function useWindowWidth() {
     readTime: "11 min",
     category: "css",
     tags: ["Tailwind CSS", "CSS", "Responsive Design", "UI Design", "Frontend"],
-    image: "/images/blog/tailwind-css.webp",
+    image: "/images/blog/tailwind-csss.webp",
     content: `
 <h2>Introduction</h2>
 <p>Creating consistent, responsive, and visually appealing interfaces is an important part of modern frontend development. Tailwind CSS provides a utility-first approach that allows developers to style components directly within their markup.</p>
@@ -272,7 +272,7 @@ function useWindowWidth() {
     readTime: "13 min",
     category: "node",
     tags: ["Node.js", "Express.js", "REST API", "Backend", "JavaScript"],
-    image: "/images/blog/nodejs.webp",
+    image: "/images/blog/nodejss.webp",
     content: `
 <h2>Introduction to Backend Development</h2>
 <p>Backend development powers the functionality behind modern web applications. It handles business logic, database communication, authentication, authorization, and API responses.</p>
@@ -381,7 +381,7 @@ app.use(requestLogger);</code></pre>
     readTime: "10 min",
     category: "web",
     tags: ["Responsive Design", "CSS", "Mobile First", "Frontend", "UI UX"],
-    image: "/images/blog/responsive.webp",
+    image: "/images/blog/responsives.webp",
     content: `
 <h2>Introduction</h2>
 <p>People access websites using smartphones, tablets, laptops, and large desktop displays. A responsive website adapts its layout and content to different screen sizes without sacrificing usability.</p>
@@ -477,7 +477,7 @@ app.use(requestLogger);</code></pre>
     readTime: "12 min",
     category: "database",
     tags: ["MongoDB", "Database Design", "MERN Stack", "NoSQL", "Backend"],
-    image: "/images/blog/mongodb.webp",
+    image: "/images/blog/mongodbs.webp",
     content: `
 <h2>Introduction to MongoDB</h2>
 <p>MongoDB is a document-oriented NoSQL database that stores data in flexible BSON documents. It is widely used in JavaScript applications because its document structure works naturally with JSON-based APIs.</p>
@@ -597,7 +597,7 @@ async function connectDatabase() {
     readTime: "12 min",
     category: "javascript",
     tags: ["JavaScript", "ES6", "Async Await", "Promises", "Programming"],
-    image: "/images/blog/javascript.webp",
+    image: "/images/blog/javascripts.webp",
     content: `
 <h2>Introduction</h2>
 <p>JavaScript has evolved significantly over the years. Modern ECMAScript features help developers write cleaner, more readable, and maintainable code.</p>
@@ -735,7 +735,7 @@ console.log(add(10, 20));</code></pre>
     readTime: "14 min",
     category: "ai",
     tags: ["Artificial Intelligence", "Generative AI", "LLM", "API Integration", "Web Development"],
-    image: "/images/blog/ai-development.webp",
+    image: "/images/blog/ai-developments.webp",
     content: `
 <h2>Introduction to AI-Powered Applications</h2>
 <p>Artificial Intelligence is changing how modern applications interact with users. Developers can now integrate language models and other AI services to build applications that understand natural language, summarize information, generate content, and assist with complex tasks.</p>
@@ -877,7 +877,7 @@ Requirements:
     readTime: "15 min",
     category: "career",
     tags: ["MERN Stack", "React", "Node.js", "MongoDB", "Career Roadmap", "Web Development"],
-    image: "/images/blog/mern-roadmap.webp",
+    image: "/images/blog/mern-roadmaps.webp",
     content: `
 <h2>Introduction</h2>
 <p>Becoming a full stack web developer requires more than learning a collection of technologies. You need to understand how frontend interfaces, backend services, databases, and deployment systems work together.</p>
