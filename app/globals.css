@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Live palette — these three values are animated by <PaletteEngine /> */
+:root {
+  --mt-1: 58 134 255;
+  --mt-2: 131 56 236;
+  --mt-3: 255 0 110;
+
+  /* Theme tokens — dark (default) */
+  --bg: 5 6 10;
+  --fg: 255 255 255;
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: none;
+  --aurora-opacity: 1;
+  color-scheme: dark;
+}
+
+/* Light theme */
+:root[data-theme="light"] {
+  --bg: 244 246 252;
+  --fg: 15 23 42;
+  --glass-bg: rgba(255, 255, 255, 0.68);
+  --glass-border: rgba(15, 23, 42, 0.09);
+  --glass-shadow: 0 8px 30px -12px rgba(15, 23, 42, 0.18);
+  --aurora-opacity: 0.8;
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: rgb(var(--bg));
+  color: rgb(var(--fg) / 0.92);
+  transition: background-color 0.5s ease, color 0.5s ease;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  touch-action: pan-y;
+}
+
+::selection {
+  background: rgb(var(--mt-1) / 0.45);
+  color: rgb(var(--fg));
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: rgb(var(--bg)); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(rgb(var(--mt-1)), rgb(var(--mt-2)));
+  border-radius: 999px;
+}
+
+@layer components {
+  .text-gradient {
+    background-image: linear-gradient(
+      90deg,
+      rgb(var(--mt-1)),
+      rgb(var(--mt-2)),
+      rgb(var(--mt-3)),
+      rgb(var(--mt-1))
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient-shift 8s linear infinite;
+  }
+
+  .bg-gradient-mt {
+    background-image: linear-gradient(120deg, rgb(var(--mt-1)), rgb(var(--mt-2)) 55%, rgb(var(--mt-3)));
+    background-size: 200% 100%;
+    animation: gradient-shift 6s linear infinite;
+  }
+
+  .glass {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    transition: background-color 0.5s ease, border-color 0.4s ease;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .spotlight {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.4s;
+  }
+  .spotlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(420px circle at var(--x, 50%) var(--y, 50%), rgb(var(--mt-1) / 0.2), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s;
+    pointer-events: none;
+  }
+  .spotlight:hover { transform: translateY(-6px); border-color: rgb(var(--mt-1) / 0.55); }
+  .spotlight:hover::before { opacity: 1; }
+
+  .section { position: relative; padding: 7rem 1.5rem; }
+  .container-mt { margin: 0 auto; width: 100%; max-width: 72rem; }
+}
+
+/* Ambient aurora blobs behind everything */
+.aurora { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; opacity: var(--aurora-opacity); transition: opacity 0.5s ease; }
+.aurora span {
+  position: absolute;
+  width: 46vmax;
+  height: 46vmax;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.2;
+  will-change: transform;
+}
+.aurora span:nth-child(1) { background: rgb(var(--mt-1)); top: -15%; left: -10%; animation: drift-a 22s ease-in-out infinite; }
+.aurora span:nth-child(2) { background: rgb(var(--mt-2)); bottom: -20%; right: -10%; animation: drift-b 26s ease-in-out infinite; }
+.aurora span:nth-child(3) { background: rgb(var(--mt-3)); top: 35%; left: 40%; width: 30vmax; height: 30vmax; opacity: 0.12; animation: drift-c 30s ease-in-out infinite; }
+
+/* Subtle film grain / grid */
+.grid-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgb(var(--fg) / 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--fg) / 0.045) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at center, #000 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 20%, transparent 75%);
+}
+
+@keyframes gradient-shift { to { background-position: 300% 0; } }
+@keyframes drift-a { 50% { transform: translate(18vw, 12vh) scale(1.2); } }
+@keyframes drift-b { 50% { transform: translate(-16vw, -14vh) scale(1.15); } }
+@keyframes drift-c { 50% { transform: translate(-12vw, 10vh) scale(0.8); } }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes orbit { to { transform: rotate(360deg); } }
+@keyframes ping-soft { 0% { transform: scale(1); opacity: 0.7; } 80%, 100% { transform: scale(2.6); opacity: 0; } }
+@keyframes float-y { 50% { transform: translateY(-10px); } }
+@keyframes bob { 50% { transform: translateY(7px); } }
+
+.animate-marquee { animation: marquee 32s linear infinite; }
+.animate-orbit { animation: orbit 14s linear infinite; }
+.animate-orbit-rev { animation: orbit 20s linear infinite reverse; }
+.animate-ping-soft { animation: ping-soft 2s cubic-bezier(0, 0, 0.2, 1) infinite; }
+.animate-float { animation: float-y 5s ease-in-out infinite; }
+.animate-bob { animation: bob 1.8s ease-in-out infinite; }
+
+@media (pointer: coarse) { .cursor-glow { display: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  html { scroll-behavior: auto; }
+}
+
+/* Blog article typography */
+.prose-mt { color: rgb(var(--fg) / 0.72); line-height: 1.8; font-size: 1.05rem; }
+.prose-mt p { margin-bottom: 1.2rem; }
+.prose-mt h3 { margin: 2rem 0 0.8rem; font-size: 1.4rem; font-weight: 700; color: rgb(var(--fg)); }
+.prose-mt h4 { font-weight: 700; margin-bottom: 0.25rem; }
+.prose-mt ul { list-style: disc; padding-left: 1.4rem; margin-bottom: 1.2rem; }
+.prose-mt li { margin-bottom: 0.4rem; }
+.prose-mt a { color: rgb(var(--mt-1)); text-decoration: underline; }
+
+/* Anything sitting on the brand gradient keeps white text in both themes */
+.bg-gradient-mt, .bg-gradient-mt * { color: #fff !important; }
+.keep-white { color: #fff !important; }
