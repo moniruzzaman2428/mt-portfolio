@@ -73,7 +73,7 @@ export const site = {
     "Redux Toolkit", "GraphQL", "REST APIs", "Figma", "Photoshop", "Illustrator",
   ],
   about: {
-    title: "Computer Specialist & Frontend Developer",
+    title: "Computer Specialist & Full Stack Web Developer",
     typed: [
       "I am a passionate Computer Specialist",
       "Working as an MS Office Instructor at Open IT Institute",
@@ -165,50 +165,70 @@ export const site = {
     { icon: "rocket", title: "Frontend Solutions", text: "Responsive, accessible and high-performance frontends with modern tooling and animation." },
     { icon: "message", title: "Consultation", text: "Practical advice on architecture, performance, deployment and getting your idea online." },
   ],
-  projects: [
-    {
-      title: "Winter Clothing Donation Platform",
-      text: "A comprehensive platform connecting donors with volunteers to assist vulnerable people during the winter season.",
-      live: "https://assignment-nine-4896f.web.app/",
-      image: "https://i.ibb.co.com/gwNZ04s/Screenshot-2024-11-28-085754.png",
-      tech: ["React", "Firebase", "Tailwind CSS", "Node.js", "Express", "Redux"],
-      tag: "Charity · Full Stack",
-      launched: "March 2024",
-      features: ["Real-time synchronization of donation data", "Secure user authentication system", "Scalable database architecture"],
-    },
-    {
-      title: "Gadget Heaven E-commerce",
-      text: "Modern e-commerce platform specializing in premium tech accessories with advanced shopping features.",
-      live: "https://magical-gumption-061d0e.netlify.app/",
-      source: "https://github.com/nur922184/gadget-heaven-accessories",
-      image: "https://i.ibb.co.com/bHP8G53/Screenshot-2024-11-28-091404.png",
-      tech: ["React", "Node.js", "MongoDB", "Express", "Redux", "Stripe"],
-      tag: "E-commerce · Full Stack",
-      launched: "July 2024",
-      features: ["Payment gateway security implementation", "Performance optimization for large catalog", "Cart synchronization across devices"],
-    },
-    {
-      title: "Lifelink Relationship Platform",
-      text: "Platform fostering meaningful connections through smart matching and community building.",
-      live: "https://my-final-project-36ab9.web.app/",
-      source: "https://github.com/nur922184/life-link-client",
-      tech: ["React", "Firebase", "Tailwind CSS", "Node.js", "Next.js", "TypeScript"],
-      tag: "Social · Full Stack",
-      launched: "November 2024",
-      features: ["Matching algorithm development", "Real-time chat implementation", "User privacy and data security"],
-    },
-    {
-      title: "CrowdFund Platform",
-      text: "Comprehensive crowdfunding solution empowering creators to bring innovative ideas to life.",
-      live: "https://my-assignment-ten-57a0d.web.app/",
-      source: "https://github.com/nur922184/crowd-funding-client-10",
-      image: "https://i.ibb.co.com/m9RctdG/Screenshot-2024-12-20-233742.png",
-      tech: ["React", "Node.js", "MongoDB", "Express", "Stripe", "Redux"],
-      tag: "Crowdfunding · Full Stack",
-      launched: "March 2025",
-      features: ["Payment system compliance and security", "Campaign verification process", "Real-time funding updates"],
-    },
-  ] as {
+  projects:[
+  {
+    title: "Heart Gift – Interactive Digital Gift",
+    text: "An interactive digital gifting platform where users can create personalized gift links with animated gift boxes, glowing particle hearts, and memorable experiences.",
+    live: "https://particle-heart-taupe.vercel.app/",
+    image: "https://particle-heart-taupe.vercel.app/og-image.png",
+    tech: ["React", "JavaScript", "Tailwind CSS", "Framer Motion", "Vercel"],
+    tag: "Creative · Interactive Web App",
+    launched: "November 2026",
+    features: [
+      "Personalized gift link generation",
+      "Animated gift box opening experience",
+      "Glowing particle heart animation",
+      "Responsive interactive interface",
+      "Music integration"
+    ],
+  },
+  {
+    title: "Open IT Institute",
+    text: "A modern educational institute website showcasing professional IT training programs, courses, student opportunities, and institutional information.",
+    live: "https://openitinstitute-c8d2d.web.app",
+    image: "https://i.ibb.co.com/0pqNNwNz/mobile-i-Phone-17-Pro-Max-full-3.png",
+    tech: ["React", "JavaScript", "Tailwind CSS", "Firebase", "REST API"],
+    tag: "Education · Full Stack",
+    launched: "2026",
+    features: [
+      "Modern responsive educational website",
+      "Course and training program showcase",
+      "SEO optimization and structured data",
+      "Student-focused user experience",
+      "Institutional information management"
+    ],
+  },
+  {
+    title: "OpenIT AI",
+    text: "An AI-focused web project exploring intelligent digital solutions and modern AI-powered user experiences.",
+    live: "https://openit-ai.web.app/",
+    image: "https://i.ibb.co.com/MDBbwzdv/mobile-i-Phone-17-Pro-Max-full-4.png",
+    tech: ["React", "JavaScript", "AI Integration"],
+    tag: "Artificial Intelligence · Web App",
+    launched: "2026",
+    features: [
+      "AI-powered digital experiences",
+      "Modern interactive interface",
+      "Scalable application architecture",
+      "AI solution exploration"
+    ],
+  },
+  {
+    title: "Gadget Heaven E-commerce",
+    text: "Modern e-commerce platform specializing in premium tech accessories with advanced shopping features.",
+    live: "https://magical-gumption-061d0e.netlify.app/",
+    source: "https://github.com/nur922184/gadget-heaven-accessories",
+    image: "https://i.ibb.co.com/bHP8G53/Screenshot-2024-11-28-091404.png",
+    tech: ["React", "Node.js", "MongoDB", "Express", "Redux", "Stripe"],
+    tag: "E-commerce · Full Stack",
+    launched: "July 2024",
+    features: [
+      "Payment gateway security implementation",
+      "Performance optimization for large catalog",
+      "Cart synchronization across devices"
+    ],
+  },
+]as {
     title: string; text: string; live: string; source?: string; image?: string
     tech: string[]; tag: string; launched: string; features: string[]
   }[],
