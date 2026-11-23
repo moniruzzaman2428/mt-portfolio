@@ -216,9 +216,8 @@ export const site = {
   {
     title: "Gadget Heaven E-commerce",
     text: "Modern e-commerce platform specializing in premium tech accessories with advanced shopping features.",
-    live: "https://magical-gumption-061d0e.netlify.app/",
-    source: "https://github.com/nur922184/gadget-heaven-accessories",
-    image: "https://i.ibb.co.com/bHP8G53/Screenshot-2024-11-28-091404.png",
+    live: "https://gadget-heaven-ecommerce.vercel.app",
+    image: "https://i.ibb.co.com/nqkcGdHB/mobile-i-Phone-17-Pro-Max-full-6.png",
     tech: ["React", "Node.js", "MongoDB", "Express", "Redux", "Stripe"],
     tag: "E-commerce · Full Stack",
     launched: "July 2024",
