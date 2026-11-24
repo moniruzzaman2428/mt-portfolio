@@ -1,32 +1,27 @@
 "use client"
 
 import { AnimatePresence, motion } from "framer-motion"
-import dynamic from "next/dynamic"
 import { useState } from "react"
 import Reveal from "./Reveal"
 import SectionTitle from "./SectionTitle"
 import { Counter } from "./Hero"
+import SkillStage from "./SkillStage"
+import { ctl } from "@/lib/skillCtl"
 import { site } from "@/lib/content"
 import { skillIcons } from "@/lib/icons"
-
-const SkillGlobe = dynamic(() => import("./SkillGlobe"), {
-  ssr: false,
-  loading: () => <div className="glass h-[480px] animate-pulse rounded-3xl md:h-[640px]" aria-hidden />,
-})
 
 const groups = ["All", "Frontend", "Backend", "Tools"] as const
 
 export default function Skills() {
   const [group, setGroup] = useState<(typeof groups)[number]>("All")
-  const [engaged, setEngaged] = useState(false)
   const list = site.skills.filter((s) => group === "All" || s.group === group)
 
   return (
     <section
       id="skills"
       className="section"
-      onPointerEnter={() => setEngaged(true)}
-      onPointerLeave={() => setEngaged(false)}
+      onPointerEnter={() => { ctl.engaged = true }}
+      onPointerLeave={() => { ctl.engaged = false }}
     >
       <div className="container-mt">
         <SectionTitle eyebrow="Skills" title="Technical" accent="expertise" />
@@ -43,15 +38,16 @@ export default function Skills() {
           ))}
         </Reveal>
 
-        <Reveal className="mb-8">
-          <SkillGlobe group={group} engaged={engaged} />
+        {/* The page's background 3D globe flies into this stage and the skills orbit it */}
+        <div className="mb-16">
+          <SkillStage group={group} />
+        </div>
+
+        <Reveal className="mb-6">
+          <h3 className="text-lg font-semibold text-white">All skills in detail</h3>
         </Reveal>
 
-        {/* <Reveal className="mb-6">
-          <h3 className="text-lg font-semibold text-white">All skills in detail</h3>
-        </Reveal> */}
-
-        {/* <motion.div layout className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <motion.div layout className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <AnimatePresence mode="popLayout">
             {list.map((s, i) => {
               const Icon = skillIcons[s.icon]
@@ -85,9 +81,8 @@ export default function Skills() {
               )
             })}
           </AnimatePresence>
-        </motion.div> */}
+        </motion.div>
       </div>
     </section>
   )
 }
-
