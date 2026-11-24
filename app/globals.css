@@ -104,7 +104,7 @@ body {
   .spotlight:hover { transform: translateY(-6px); border-color: rgb(var(--mt-1) / 0.55); }
   .spotlight:hover::before { opacity: 1; }
 
-  .section { position: relative; padding: 7rem 1.5rem; }
+  .section { position: relative; padding: 7rem 1.1rem; }
   .container-mt { margin: 0 auto; width: 100%; max-width: 72rem; }
 }
 
@@ -173,3 +173,21 @@ body {
 /* Anything sitting on the brand gradient keeps white text in both themes */
 .bg-gradient-mt, .bg-gradient-mt * { color: #fff !important; }
 .keep-white { color: #fff !important; }
+
+/* ───── 3D Skill Globe nodes ───── */
+.skill-node { --nc: var(--mt-1); }
+[data-colorgroup="1"] .skill-node[data-group="Backend"] { --nc: var(--mt-2); }
+[data-colorgroup="1"] .skill-node[data-group="Tools"] { --nc: var(--mt-3); }
+
+.skill-ring {
+  background: conic-gradient(rgb(var(--nc)) calc(var(--lv) * 1%), rgb(var(--fg) / 0.14) 0);
+  box-shadow: 0 0 22px -4px rgb(var(--nc) / 0.55);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.skill-chip { cursor: pointer; }
+.skill-node[data-active="1"] .skill-ring { box-shadow: 0 0 34px 2px rgb(var(--nc) / 0.9); }
+.skill-chip:focus-visible .skill-ring { outline: 2px solid rgb(var(--nc)); outline-offset: 3px; }
+
+.skill-label { opacity: 0; transform: translateY(-3px); transition: opacity 0.25s ease, transform 0.25s ease; pointer-events: none; }
+[data-labels="always"] .skill-label,
+.skill-node[data-active="1"] .skill-label { opacity: 1; transform: none; }
